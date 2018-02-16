@@ -39,6 +39,14 @@ public class Card {
                     suit.getName().charAt(0));
         }
     }
+
+    /**
+     * Getter for the card value
+     * @return Value of the card
+     */
+    public int getCardValue() {
+        return value.getValue();
+    }
 }
 
 
