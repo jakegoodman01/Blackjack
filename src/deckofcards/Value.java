@@ -35,9 +35,9 @@ public enum Value {
 
     /**
      * Getter for the Value name
-     * @return The value as a lowercase String
+     * @return The value as a String
      */
     public String getName() {
-        return this.name().toLowerCase();
+        return this.name();
     }
 }

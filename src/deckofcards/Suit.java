@@ -8,9 +8,9 @@ public enum Suit {
 
     /**
      * Getter for the suit name
-     * @return The name of the suit as a lowercase String
+     * @return The name of the suit
      */
     public String getName() {
-        return this.name().toLowerCase();
+        return this.name();
     }
 }
