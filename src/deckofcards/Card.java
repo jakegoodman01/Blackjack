@@ -15,26 +15,17 @@ public class Card {
     }
 
     /**
-     * Getter for the full card name
-     * @return Card name, eg. "ace of spades"
-     */
-    public String getCardName() {
-        return String.format("%s of %s",
-                value.getName(),
-                suit.getName());
-    }
-
-    /**
-     * Getter for the short form of the card name
+     * toString returns the card name in short form
      * @return Card name in short form, eg. "A-s"
      */
-    public String getCardNameShortForm() {
+    @Override
+    public String toString() {
         if (value.getValue() >= 11 || value.getValue() == 1) {
-            return String.format("%s-%s",
-                    value.getName().toUpperCase().charAt(0),
-                    suit.getName().charAt(0));
+            return String.format("%s%s",
+                    value.getName().charAt(0),
+                    suit.getName().toLowerCase().charAt(0));
         } else {
-            return String.format("%s-%s",
+            return String.format("%s%s",
                     value.getValue(),
                     suit.getName().charAt(0));
         }
