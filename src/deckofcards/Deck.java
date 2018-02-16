@@ -1,7 +1,6 @@
 package deckofcards;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class Deck {
     private Queue<Card> deck;
@@ -18,7 +17,34 @@ public class Deck {
         }
     }
 
+    /**
+     * Shuffles the deck of cards with the static method on Collections: shuffle
+     */
+    public void shuffle() {
+        Collections.shuffle((List)deck);
+    }
 
+    /**
+     * Getter for deck
+     * @return The queue deck
+     */
+    public Queue<Card> getDeck() {
+        return deck;
+    }
+
+    /**
+     * Deals one card
+     * @return A Card
+     */
+    public Card deal() {
+        return deck.poll();
+    }
+
+    public void printCards() {
+        for (Card card : deck) {
+            System.out.println(card);
+        }
+    }
 
 
 }
