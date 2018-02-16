@@ -14,8 +14,14 @@ public enum Value {
     JACK(11),
     QUEEN(12),
     KING(13);
-    
-    Value (int value) {
 
+    private int value;
+
+    Value (int value) {
+        this.value = value;
+    }
+
+    public String getName() {
+        return this.name().toLowerCase();
     }
 }
