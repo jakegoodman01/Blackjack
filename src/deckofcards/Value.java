@@ -26,6 +26,14 @@ public enum Value {
     }
 
     /**
+     * Getter for value
+     * @return The value as an int
+     */
+    public int getValue() {
+        return value;
+    }
+
+    /**
      * Getter for the Value name
      * @return The value as a lowercase String
      */
