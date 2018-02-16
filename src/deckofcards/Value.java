@@ -17,10 +17,18 @@ public enum Value {
 
     private int value;
 
+    /**
+     * Constructor for Value Enum
+     * @param value The number value for each card
+     */
     Value (int value) {
         this.value = value;
     }
 
+    /**
+     * Getter for the Value name
+     * @return The value as a lowercase String
+     */
     public String getName() {
         return this.name().toLowerCase();
     }
