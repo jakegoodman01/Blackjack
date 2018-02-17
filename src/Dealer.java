@@ -37,6 +37,11 @@ public class Dealer {
         player.clear();
     }
 
+    /**
+     * Prompts the user to make a hit, which is to add a card to your current hand.
+     * If they hit and their hand has a value of more than 21, then the program exits
+     * because the user has busted!
+     */
     public void promptForHit() {
         Scanner in = new Scanner(System.in);
         System.out.println("Would you like to hit?\nPress 'h' to hit!");
@@ -52,6 +57,10 @@ public class Dealer {
         }
     }
 
+    /**
+     * Displays the current status of both players' hands.
+     * Displays the cards that each player has, and their hand values.
+     */
     public void displayCurrentStatus () {
         System.out.println();
         System.out.print("Dealer's cards: ");
