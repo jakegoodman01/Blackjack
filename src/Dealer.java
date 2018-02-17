@@ -37,23 +37,6 @@ public class Dealer {
         player.clear();
     }
 
-    /**
-     * Getter for the dealer's hand
-     * @return The dealer's current cards
-     */
-    public List<Card> getDealerCards() {
-        return dealer;
-    }
-
-    /**
-     * Getter for the player's cards
-     * @return The player's current cards
-     */
-    public List<Card> getPlayerCards() {
-        return player;
-    }
-
-
     public void promptForHit() {
         Scanner in = new Scanner(System.in);
         System.out.println("Would you like to hit?\nPress 'h' to hit!");
@@ -69,6 +52,20 @@ public class Dealer {
         }
     }
 
+    public void displayCurrentStatus () {
+        System.out.print("Dealer's cards: ");
+        for (Card card : dealer) {
+            System.out.print(card + " ");
+        }
+        System.out.println();
+
+        System.out.print("Player's cards: ");
+        for (Card card : player) {
+            System.out.print(card + " ");
+        }
+        System.out.println();
+    }
+
     /**
      * Finds the value of the given hand
      * @param hand A list of cards in the current hand
@@ -81,10 +78,4 @@ public class Dealer {
         }
         return handValue;
     }
-
-    public int getDeckSize() {
-        return deck.size();
-    }
-
-
 }
