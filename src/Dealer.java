@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Dealer {
     private Deck deck;
-    private List<Card> dealerCards;
-    private List<Card> playerCards;
+    private Hand dealerCards;
+    private Hand playerCards;
 
     /**
      * Initializes all private fields.
@@ -16,14 +16,15 @@ public class Dealer {
         deck = new Deck();
         deck.shuffle();
 
-        dealerCards = new ArrayList<>();
-        playerCards = new ArrayList<>();
+        dealerCards = new Hand();
+        playerCards = new Hand();
     }
 
     /**
      * Deals each player 2 cards
      */
     public void beginGame() {
+        System.out.println("Welcome to Blackjack!");
         dealerCards.add(deck.deal());
         playerCards.add(deck.deal());
         dealerCards.add(deck.deal());
