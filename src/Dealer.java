@@ -1,12 +1,12 @@
 import deckofcards.*;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Dealer {
     private Deck deck;
-    private Hand dealerCards;
-    private Hand playerCards;
+    private Hand dealer;
+    private Hand player;
 
     /**
      * Initializes all private fields.
@@ -16,8 +16,8 @@ public class Dealer {
         deck = new Deck();
         deck.shuffle();
 
-        dealerCards = new Hand();
-        playerCards = new Hand();
+        dealer = new Hand(deck);
+        player = new Hand(deck);
     }
 
     /**
@@ -25,10 +25,10 @@ public class Dealer {
      */
     public void beginGame() {
         System.out.println("Welcome to Blackjack!");
-        dealerCards.add(deck.deal());
-        playerCards.add(deck.deal());
-        dealerCards.add(deck.deal());
-        playerCards.add(deck.deal());
+        dealer.hit();
+        player.hit();
+        dealer.hit();
+        player.hit();
     }
 
     /**
@@ -37,8 +37,8 @@ public class Dealer {
     public void endGame() {
         deck = new Deck();
         deck.shuffle();
-        dealerCards.clear();
-        playerCards.clear();
+        dealer.clear();
+        player.clear();
     }
 
     /**
@@ -46,7 +46,7 @@ public class Dealer {
      * @return The dealer's current cards
      */
     public List<Card> getDealerCards() {
-        return dealerCards;
+        return dealer;
     }
 
     /**
@@ -54,9 +54,24 @@ public class Dealer {
      * @return The player's current cards
      */
     public List<Card> getPlayerCards() {
-        return playerCards;
+        return player;
     }
 
+
+    public void promptForHit() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Would you like to hit?\nPress 'h' to hit!");
+        String choice = in.nextLine();
+
+        if (choice.charAt(0) == 'h' && choice.length() == 1) {
+            if (player.hit()) {
+                System.out.println("Still alive!");
+            } else {
+                System.out.println("Bust!");
+                System.exit(0);
+            }
+        }
+    }
 
     /**
      * Finds the value of the given hand
@@ -70,4 +85,10 @@ public class Dealer {
         }
         return handValue;
     }
+
+    public int getDeckSize() {
+        return deck.size();
+    }
+
+
 }
