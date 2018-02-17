@@ -42,9 +42,9 @@ public class Dealer {
      * If they hit and their hand has a value of more than 21, then the program exits
      * because the user has busted!
      */
-    public void promptForHit() {
+    public void promptForTurn() {
         Scanner in = new Scanner(System.in);
-        System.out.println("Would you like to hit?\nPress 'h' to hit!");
+        System.out.println("Would you like to hit?\nPress 'h' to hit.\nPress 's' to stay.");
         String choice = in.nextLine();
 
         if (choice.length() == 1 && choice.charAt(0) == 'h') {
@@ -54,7 +54,39 @@ public class Dealer {
                 System.out.println("Bust!");
                 System.exit(0);
             }
+        } else if (choice.length() == 1 && choice.charAt(0) == 's') {
+            System.out.println("Staying");
+            System.out.println("Dealer will now complete their hand.");
+            System.out.println();
+
+            if (!dealer.hitDealer()) {
+                System.out.println("Dealer busted with:");
+                for (Card card : dealer) {
+                    System.out.print(card + ", ");
+                }
+                System.out.println();
+                System.out.println("Congratulations! You won!!!");
+                System.exit(0);
+            } else {
+                displayCurrentStatus();
+                if (dealer.getHandValue() > player.getHandValue()) {
+                    System.out.printf("Unlucky! The dealer beat you by %d points!",
+                            dealer.getHandValue() - player.getHandValue());
+                } else if (dealer.getHandValue() < player.getHandValue()) {
+                    System.out.printf("Awesome! You beat the dealer by %d points!",
+                            player.getHandValue() - dealer.getHandValue());
+                } else {
+                    System.out.println("That's a push! Good work tying with the dealer!");
+                }
+                System.exit(0);
+            }
+
+        } else {
+            System.out.println();
+            System.out.println("I'm sorry, your input is not understood.");
+            promptForTurn();
         }
+
     }
 
     /**
@@ -76,7 +108,7 @@ public class Dealer {
         }
         System.out.printf("value: %d", player.getHandValue());
         System.out.println();
-        System.out.printf("%n%n%n");
+        System.out.println();
     }
 
     /**
