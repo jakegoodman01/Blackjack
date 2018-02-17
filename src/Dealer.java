@@ -14,10 +14,6 @@ public class Dealer {
      */
     public Dealer() {
         deck = new Deck();
-        deck.shuffle();
-
-        dealer = new Hand(deck);
-        player = new Hand(deck);
     }
 
     /**
@@ -25,10 +21,10 @@ public class Dealer {
      */
     public void beginGame() {
         System.out.println("Welcome to Blackjack!");
-        dealer.hit();
-        player.hit();
-        dealer.hit();
-        player.hit();
+        deck.shuffle();
+
+        dealer = new Hand(deck);
+        player = new Hand(deck);
     }
 
     /**
