@@ -25,26 +25,10 @@ public class Deck {
     }
 
     /**
-     * Getter for deck
-     * @return The queue deck
-     */
-    public Queue<Card> getDeck() {
-        return deck;
-    }
-
-    /**
      * Deals one card
      * @return A Card
      */
     public Card deal() {
         return deck.poll();
     }
-
-    public void printCards() {
-        for (Card card : deck) {
-            System.out.println(card);
-        }
-    }
-
-
 }
