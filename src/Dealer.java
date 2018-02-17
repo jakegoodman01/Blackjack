@@ -42,7 +42,7 @@ public class Dealer {
         System.out.println("Would you like to hit?\nPress 'h' to hit!");
         String choice = in.nextLine();
 
-        if (choice.charAt(0) == 'h' && choice.length() == 1) {
+        if (choice.length() == 1 && choice.charAt(0) == 'h') {
             if (player.hit()) {
                 System.out.println("Still alive!");
             } else {
@@ -53,17 +53,21 @@ public class Dealer {
     }
 
     public void displayCurrentStatus () {
+        System.out.println();
         System.out.print("Dealer's cards: ");
         for (Card card : dealer) {
-            System.out.print(card + " ");
+            System.out.print(card + ", ");
         }
+        System.out.printf("value: %d", dealer.getHandValue());
         System.out.println();
 
         System.out.print("Player's cards: ");
         for (Card card : player) {
-            System.out.print(card + " ");
+            System.out.print(card + ", ");
         }
+        System.out.printf("value: %d", player.getHandValue());
         System.out.println();
+        System.out.printf("%n%n%n");
     }
 
     /**
