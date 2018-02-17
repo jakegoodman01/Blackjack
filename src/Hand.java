@@ -13,10 +13,24 @@ public class Hand extends ArrayList<Card> {
         add(deck.deal());
     }
 
+    /**
+     * In blackjack, the dealer has certain rules for hitting.
+     * This method will run through that process
+     * @return True if the dealer's hand remains in play after the hit
+     */
+    public boolean hitDealer() {
+        while (getHandValue() <= 16) {
+            hit();
+        }
+        return getHandValue() <= 21;
+    }
+
+    /**
+     * Hits the player's hand
+     * @return True if the player's hand remains in play after the hit
+     */
     public boolean hit() {
-        Card card;
-        add(card = deck.deal());
-        System.out.printf("You got: %s%n", card);
+        add(deck.deal());
         return getHandValue() <= 21;
     }
 
