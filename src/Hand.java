@@ -9,6 +9,8 @@ public class Hand extends ArrayList<Card> {
 
     public Hand (Deck deck) {
         this.deck = deck;
+        add(deck.deal());
+        add(deck.deal());
     }
 
     public boolean hit() {
