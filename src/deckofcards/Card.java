@@ -27,7 +27,7 @@ public class Card {
         } else {
             return String.format("%s%s",
                     value.getValue(),
-                    suit.getName().charAt(0));
+                    suit.getName().toLowerCase().charAt(0));
         }
     }
 
